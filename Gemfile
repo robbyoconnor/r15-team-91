@@ -33,6 +33,7 @@ gem 'bootstrap-sass'
 gem 'puma'
 
 gem 'github_api'
+gem 'lograge'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
