@@ -7,6 +7,6 @@ class CreateRepository < ActiveRecord::Migration
       t.timestamps null:false
     end
 
-    add_index :repositories, [:owner, :name], unique: true
+    add_index :repositories, [:owner, :name], unique: true, using: :btree
   end
 end
