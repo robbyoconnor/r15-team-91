@@ -41,6 +41,13 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  # Specs
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+end
+
 group :production do
   # The twelve-factor app
   gem 'rails_12factor'
