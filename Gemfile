@@ -35,12 +35,18 @@ gem 'octokit', '~> 4.0'
 # Use Unicorn as the app server
 gem 'puma'
 
+gem 'lograge'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
   # Environment variables
   gem 'dotenv-rails'
+
+  # Better Rails Console
+  gem 'pry-rails'
+  gem 'awesome_print'
 end
 
 group :development do

@@ -1,3 +1,16 @@
-h1 What should I use?
+h1.text-center What Should I Use?
 
-p it's coming...
+= form_tag compare_path, method: :post do
+  .row
+    .col-sm-3.col-sm-offset-2
+      .input-group
+        .input-group-addon github.com/
+        = text_field_tag 'repo1', params[:repo1] || 'plataformatec/devise', class: 'form-control'
+
+    .col-sm-3
+      .input-group
+        .input-group-addon github.com/
+        = text_field_tag 'repo2', params[:repo2] || 'thoughtbot/clearance', class: 'form-control'
+
+    .col-sm-2
+      = submit_tag 'Compare', class: 'btn btn-primary btn'
