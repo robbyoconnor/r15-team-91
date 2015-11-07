@@ -70,4 +70,7 @@ end
 group :production do
   # The twelve-factor app
   gem 'rails_12factor'
+
+  # Cache store
+  gem 'redis-rails'
 end
