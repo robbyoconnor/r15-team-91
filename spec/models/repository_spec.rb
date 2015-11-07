@@ -4,7 +4,6 @@ RSpec.describe Repository do
   let(:repository) do
     OpenStruct.new(
       description: 'description',
-      fork: false,
       created_at: 1.day.ago,
       pushed_at: Time.now,
       homepage: 'http://homepage.com',
@@ -23,7 +22,6 @@ RSpec.describe Repository do
   #
   it { expect(subject.name).to eq repository.name }
   it { expect(subject.description).to eq repository.description }
-  it { expect(subject.fork).to eq repository.fork }
   it { expect(subject.created_at).to eq repository.created_at }
   it { expect(subject.pushed_at).to eq repository.pushed_at }
   it { expect(subject.homepage).to eq repository.homepage }
