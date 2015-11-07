@@ -38,6 +38,10 @@ group :development, :test do
 
   # Environment variables
   gem 'dotenv-rails'
+
+  # Better Rails Console
+  gem 'pry-rails'
+  gem 'awesome_print'
 end
 
 group :development do
