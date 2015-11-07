@@ -1,12 +1,15 @@
-table.table
-  thead
-    tr
-      th.text-right = @repo1.name
-      th.text-center vs
-      th.text-left = @repo2.name
-  tbody
-    - Repository::ATTRIBUTES.each do |key|
+- if @repo1 && @repo2
+  table.table
+    thead
       tr
-        td.text-right = @repo1.send(key)
-        td.text-center = key
-        td = @repo2.send(key)
+        th.text-right = @repo1.name
+        th.text-center vs
+        th.text-left = @repo2.name
+    tbody
+      - Repository::ATTRIBUTES.each do |key|
+        tr
+          td.text-right = @repo1.send(key)
+          td.text-center = key
+          td = @repo2.send(key)
+- else
+  p Repository not found!
