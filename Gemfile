@@ -29,6 +29,9 @@ gem 'bootstrap-sass'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Github API
+gem 'octokit', '~> 4.0'
+
 # Use Unicorn as the app server
 gem 'puma'
 
