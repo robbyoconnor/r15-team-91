@@ -5,4 +5,4 @@ script:
 - bundle exec rake db:migrate RAILS_ENV=test
 - bundle exec rspec
 before_script:
-- cp config/database.yml.travis config/database.yml
+- psql -c 'create database this_or_that_test;' -U postgres
