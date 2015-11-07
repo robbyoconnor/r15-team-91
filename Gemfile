@@ -41,3 +41,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # The twelve-factor app
+  gem 'rails_12factor'
+end
