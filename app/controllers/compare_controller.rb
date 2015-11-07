@@ -2,18 +2,16 @@ class CompareController < ApplicationController
   def new
   end
 
-  # TODO: Improve-me (:
   def show
-    @repositories = []
+    @repositories = (1..2).map do |number|
+      owner = params["owner#{number}"]
+      name  = params["name#{number}"]
 
-    # TODO: Improve for infinite repos...
-    if params[:owner1].present? && params[:name1].present?
-      @repositories << Repository.find_by(owner: params[:owner1], name: params[:name1])
-    end
+      return if owner.blank? || name.blank?
 
-    # TODO: Improve for infinite repos...
-    if params[:owner2].present? && params[:name2].present?
-      @repositories << Repository.find_by(owner: params[:owner2], name: params[:name2])
+      Rails.cache.fetch([:repository, owner, name]) do
+        Repository.find_by(owner: owner, name: name)
+      end
     end
   end
 end
