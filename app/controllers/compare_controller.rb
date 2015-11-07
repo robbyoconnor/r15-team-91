@@ -3,7 +3,7 @@ class CompareController < ApplicationController
   end
 
   def show
-    @repositories = (1..2).map do |number|
+    repositories = (1..2).map do |number|
       owner = params["owner#{number}"]
       name  = params["name#{number}"]
 
@@ -13,5 +13,7 @@ class CompareController < ApplicationController
         Repository.find_by(owner: owner, name: name)
       end
     end
+
+    @repo1, @repo2 = repositories
   end
 end

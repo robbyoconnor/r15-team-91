@@ -1,4 +1,12 @@
-- if @repositories.any?
-  = render partial: 'repository', collection: @repositories
-- else
-  p it's coming...
+table.table
+  thead
+    tr
+      th.text-right = @repo1.name
+      th.text-center vs
+      th.text-left = @repo2.name
+  tbody
+    - Repository::ATTRIBUTES.each do |key|
+      tr
+        td.text-right = @repo1.send(key)
+        td.text-center = key
+        td = @repo2.send(key)
