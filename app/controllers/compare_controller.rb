@@ -16,4 +16,8 @@ class CompareController < ApplicationController
 
     @repo1, @repo2 = repositories
   end
+
+  def create
+    redirect_to compare_path(*params[:repo1].split('/'), *params[:repo2].split('/'))
+  end
 end
