@@ -8,6 +8,7 @@ class PersistComparisonWorker
     comparison = Comparison.find_or_create_by(code: comparison_code)
     comparison.repositories << @repository1
     comparison.repositories << @repository2
+    comparison.increment!(:executions_count)
   end
 
   private

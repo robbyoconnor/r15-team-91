@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20151107194100) do
 
   create_table "comparisons", force: :cascade do |t|
     t.string   "code",                         null: false
-    t.integer  "executions_count", default: 1, null: false
+    t.integer  "executions_count", default: 0, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end

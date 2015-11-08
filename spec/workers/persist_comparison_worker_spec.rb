@@ -14,6 +14,14 @@ RSpec.describe PersistComparisonWorker do
       }.to change(Repository, :count).by(2)
     end
 
+    it 'increment execution counter' do
+      comparison = create(:comparison, code: comparison_code)
+
+      expect {
+        subject.perform(owner1, name1, owner2, name2)
+      }.to change { comparison.reload.executions_count }.by(1)
+    end
+
     it 'does not create a new repository when exists' do
       create(:repository, owner: owner1, name: name1)
       create(:repository, owner: owner2, name: name2)
