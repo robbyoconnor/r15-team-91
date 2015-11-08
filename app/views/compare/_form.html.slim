@@ -1,0 +1,14 @@
+= form_tag create_compare_path, method: :post do
+  .row
+    .col-sm-4.col-sm-offset-1
+      .input-group.input-group-lg
+        .input-group-addon github.com/
+        = text_field_tag 'repo1', @repo1, placeholder: 'plataformatec/devise', class: 'form-control'
+
+    .col-sm-4
+      .input-group.input-group-lg
+        .input-group-addon github.com/
+        = text_field_tag 'repo2', @repo2, placeholder: 'thoughtbot/clearance', class: 'form-control'
+
+    .col-sm-2
+      = submit_tag 'Compare', class: 'btn btn-primary btn-lg'
