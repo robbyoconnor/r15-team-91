@@ -1,12 +1,9 @@
 class Repository < ActiveRecord::Base
   #
-  # attributes to list automatically
+  # attributes
   #
-  ATTRIBUTES = %i(description created_at pushed_at homepage
-                  language stargazers_count forks_count open_issues_count
-                  network_count subscribers_count watchers_count)
-
-  attr_accessor *ATTRIBUTES
+  attr_accessor :information
+  serialize :information, RepositoryInformation
 
   #
   # validations

@@ -32,6 +32,9 @@ gem 'bootstrap-sass'
 # Github API
 gem 'octokit', '~> 4.0'
 
+# Attributes with steroids (:
+gem 'virtus'
+
 # Use Unicorn as the app server
 gem 'puma'
 

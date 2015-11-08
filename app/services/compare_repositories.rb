@@ -41,11 +41,14 @@ class CompareRepositories
   end
 
   def repository(owner, name)
-    values = github_information(owner, name)
-    return nil if values.blank?
+    information = github_information(owner, name)
+    return nil if information.blank?
 
-    values = values.to_hash.slice(*Repository::ATTRIBUTES)
-    Repository.new({ owner: owner, name: name }.merge(values))
+    Repository.new({
+      owner: owner,
+      name: name,
+      information: RepositoryInformation.new(information)
+    })
   end
 
   def github_information(owner, name)
