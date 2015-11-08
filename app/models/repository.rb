@@ -7,6 +7,9 @@ class Repository
 
   attr_accessor :repository
 
+  extend Forwardable
+  def_delegators :@repository, :name, :owner, *ATTRIBUTES
+
   #
   # methods
   #
@@ -18,13 +21,5 @@ class Repository
     new(repository: Octokit.repository(owner: owner, name: name))
   rescue Octokit::NotFound => e
     nil
-  end
-
-  private
-
-  def method_missing(method_sym, *_arguments, &_block)
-    return repository[method_sym] if repository.respond_to? method_sym
-
-    super
   end
 end
