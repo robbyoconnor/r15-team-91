@@ -7,7 +7,7 @@ h1.text-center This or That?
     .col-sm-6
       = render 'repo', repo: @repo2.information
 
-  .row
+  .row.graph
     = render 'row', left: @repo1.information.stargazers_count, right: @repo2.information.stargazers_count, label: t('.stargazers_count')
     = render 'row', left: @repo1.information.stargazers_count, right: @repo2.information.stargazers_count, label: t('.stargazers_count')
     = render 'row', left: @repo1.information.subscribers_count, right: @repo2.information.subscribers_count, label: t('.subscribers_count')

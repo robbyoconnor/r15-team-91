@@ -1,6 +1,6 @@
 - min = [left, right].min
 - max = [left, right].max + min / 2
 
-.col-sm-5.text-right = render 'progress_bar', value: left, max: max
+.col-sm-5.attribute-left = render 'progress_bar', value: left, max: max
 .col-sm-2.text-center = label
-.col-sm-5 = render 'progress_bar', value: right, max: max
+.col-sm-5.attribute-right = render 'progress_bar', value: right, max: max
