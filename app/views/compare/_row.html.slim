@@ -1,0 +1,6 @@
+- min = [left, right].min
+- max = [left, right].max + min / 2
+tr
+  td.attribute-left = render 'progress_bar', value: left, max: max
+  td.attribute-label = label
+  td.attribute-right = render 'progress_bar', value: right, max: max
