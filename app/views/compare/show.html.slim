@@ -9,7 +9,6 @@ h1.text-center This or That?
 
   .row.graph
     = render 'row', left: @repo1.information.stargazers_count, right: @repo2.information.stargazers_count, label: t('.stargazers_count')
-    = render 'row', left: @repo1.information.stargazers_count, right: @repo2.information.stargazers_count, label: t('.stargazers_count')
     = render 'row', left: @repo1.information.subscribers_count, right: @repo2.information.subscribers_count, label: t('.subscribers_count')
     = render 'row', left: @repo1.information.forks_count, right: @repo2.information.forks_count, label: t('.forks_count')
     = render 'row', left: @repo1.information.open_issues_count, right: @repo2.information.open_issues_count, label: t('.open_issues_count')
