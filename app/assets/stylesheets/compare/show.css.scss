@@ -1,0 +1,25 @@
+.attribute-label {
+  width: 1%;
+  white-space: nowrap;
+  text-align: center;
+  font-weight: bold;
+}
+
+.attribute-left .progress-bar {
+  float: right;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.attribute-right .progress-bar {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.progress .progress-bar {
+  min-width: 40px;
+}
+
+.table.borderless td {
+  border: none;
+}
