@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  compare:
+    show:
+      name: Name
+      description: Description
+      homepage: Site
+      created_at: How Old
+      pushed_at: Last Push
+      language: Language
+      stargazers_count: Stars
+      forks_count: Forks
+      open_issues_count: Open Issues
+      subscribers_count: Watchers

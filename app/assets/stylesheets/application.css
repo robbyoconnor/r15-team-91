@@ -1,0 +1,7 @@
+/**
+ *= require bootstrap-custom
+ */
+
+.translation_missing {
+  outline: 1px dashed red;
+}
