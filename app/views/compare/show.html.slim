@@ -9,7 +9,7 @@
       - Repository::ATTRIBUTES.each do |key|
         tr
           td.text-right = @repo1.send(key)
-          td.text-center = key
+          td.text-center = t(".#{key}")
           td = @repo2.send(key)
 - else
   p Repository not found!
