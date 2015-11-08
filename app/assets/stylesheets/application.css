@@ -3,6 +3,10 @@
  *= require_tree ./compare
  */
 
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
 .translation_missing {
   outline: 1px dashed red;
 }
