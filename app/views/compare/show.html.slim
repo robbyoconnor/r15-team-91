@@ -1,15 +1,17 @@
 - if @repo1 && @repo2
+
+  .row
+    .col-sm-4.col-sm-offset-2
+      = render 'repo', repo: @repo1
+    .col-sm-4
+      = render 'repo', repo: @repo2
+
   table.table
-    thead
-      tr
-        th.text-right = @repo1.name
-        th.text-center vs
-        th.text-left = @repo2.name
     tbody
       - Repository::ATTRIBUTES.each do |key|
         tr
           td.text-right = @repo1.send(key)
-          td.text-center = key
+          td.text-center = t(".#{key}")
           td = @repo2.send(key)
 - else
   p Repository not found!
