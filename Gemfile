@@ -35,6 +35,10 @@ gem 'octokit', '~> 4.0'
 # Use Unicorn as the app server
 gem 'puma'
 
+# Background processing
+gem 'sidekiq'
+
+# Log visualization improvements
 gem 'lograge'
 
 group :development, :test do
