@@ -12,4 +12,11 @@ RSpec.describe Repository do
 
     it { is_expected.to validate_uniqueness_of(:name).scoped_to(:owner) }
   end
+
+  #
+  # methods
+  #
+  it '#to_s' do
+    expect(subject.to_s).to eq "#{subject.owner}/#{subject.name}"
+  end
 end

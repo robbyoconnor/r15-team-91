@@ -13,4 +13,11 @@ class Repository < ActiveRecord::Base
   #
   validates :owner, presence: true
   validates :name,  presence: true, uniqueness: { scope: :owner } # TODO: And case insensitive?
+
+  #
+  # methods
+  #
+  def to_s
+    "#{owner}/#{name}"
+  end
 end
