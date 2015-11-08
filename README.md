@@ -8,4 +8,6 @@ Tell you, I cannot, but help you, I must. Yes, hmmm. ![Yoda](http://cdn2.iconfin
 
 [This or That](http://this-or-that.r15.railsrumble.com/) compares two github repositories, so you can choose which one better fits your needs.
 
-TODO: add screenshot here
+## Screenshot
+
+![Screenshot: result](https://raw.githubusercontent.com/railsrumble/r15-team-91/master/public/screenshot.png)
