@@ -2,13 +2,13 @@ class Repository
   #
   # attributes to list automatically
   #
-  ATTRIBUTES = %i(description homepage language created_at pushed_at
-                  stargazers_count subscribers_count forks_count open_issues_count)
+  ATTRIBUTES = %i(created_at pushed_at stargazers_count
+                  subscribers_count forks_count open_issues_count)
 
   attr_accessor :repository
 
   extend Forwardable
-  def_delegators :@repository, :name, :owner, *ATTRIBUTES
+  def_delegators :@repository, :name, :owner, :description, :homepage, :language, *ATTRIBUTES
 
   #
   # methods
