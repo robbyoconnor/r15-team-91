@@ -11,6 +11,10 @@
   outline: 1px dashed red;
 }
 
+.description {
+  font-size: 1.4em;
+}
+
 h1 {
   font-size: 3.7em;
   font-weight: bold;
@@ -19,7 +23,7 @@ h1 {
 h2 {
   margin-top: 0;
   font-size: 3.5em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.3em;
 }
 
 form {

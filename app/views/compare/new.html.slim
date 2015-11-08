@@ -3,3 +3,23 @@ h2.text-center What Should I Use?
 
 .container
   = render 'form'
+
+  .row
+    .col-sm-2
+    .description.col-sm-8
+      p
+        | Which authentication gem should I use?
+        '
+        = link_to 'Devise or Clearence', compare_path(owner1: 'plataformatec', name1: 'devise', owner2: 'thoughtbot', name2: 'clearance')
+        | ?
+      p
+        | Which html select should I use?
+        '
+        = link_to 'Select2 or Chosen', compare_path(owner1: 'select2', name1: 'select2', owner2: 'harvesthq', name2: 'chosen')
+        | ?
+      p Tell you, I cannot, but help you, I must. Yes, hmmm.
+      p
+        strong This or That
+        '
+        | compares two github repositories, so you can choose which one better fits your needs.
+    .col-sm-2
