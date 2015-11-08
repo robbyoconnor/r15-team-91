@@ -1,0 +1,12 @@
+.media
+  .media-left
+    // TODO: repo.owner is a attribute for repository model
+    // = image_tag repo.owner.avatar_url, width: 100, height: 100, class: 'media-object'
+  .media-body
+    h3.media-heading = repo.name
+    p
+      div = repo.description
+      div = link_to repo.homepage, repo.homepage if repo.homepage
+      div.text-muted
+        strong => repo.language
+        small language

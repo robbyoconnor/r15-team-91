@@ -3,6 +3,6 @@ class CompareController < ApplicationController
   end
 
   def show
-    @repositories = CompareRepositories.call(params)
+    @repo1, @repo2 = CompareRepositories.call(params)
   end
 end

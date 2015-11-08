@@ -1,4 +1,17 @@
-- if @repositories.any?
-  = render partial: 'repository', collection: @repositories
+- if @repo1 && @repo2
+
+  .row
+    .col-sm-4.col-sm-offset-2
+      = render 'repo', repo: @repo1
+    .col-sm-4
+      = render 'repo', repo: @repo2
+
+  table.table
+    tbody
+      - Repository::ATTRIBUTES.each do |key|
+        tr
+          td.text-right = @repo1.send(key)
+          td.text-center = t(".#{key}")
+          td = @repo2.send(key)
 - else
-  p it's coming...
+  p Repository not found!
