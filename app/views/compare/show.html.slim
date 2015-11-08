@@ -2,18 +2,18 @@
 
   .row
     .col-sm-6
-      = render 'repo', repo: @repo1
+      = render 'repo', repo: @repo1.information
     .col-sm-6
-      = render 'repo', repo: @repo2
+      = render 'repo', repo: @repo2.information
 
   table.table.borderless
     tbody
-      = render 'row', left: @repo1.stargazers_count, right: @repo2.stargazers_count, label: t('.stargazers_count')
+      = render 'row', left: @repo1.information.stargazers_count, right: @repo2.information.stargazers_count, label: t('.stargazers_count')
 
-      = render 'row', left: @repo1.subscribers_count, right: @repo2.subscribers_count, label: t('.subscribers_count')
+      = render 'row', left: @repo1.information.subscribers_count, right: @repo2.information.subscribers_count, label: t('.subscribers_count')
 
-      = render 'row', left: @repo1.forks_count, right: @repo2.forks_count, label: t('.forks_count')
+      = render 'row', left: @repo1.information.forks_count, right: @repo2.information.forks_count, label: t('.forks_count')
 
-      = render 'row', left: @repo1.open_issues_count, right: @repo2.open_issues_count, label: t('.open_issues_count')
+      = render 'row', left: @repo1.information.open_issues_count, right: @repo2.information.open_issues_count, label: t('.open_issues_count')
 - else
   p Repository not found!
