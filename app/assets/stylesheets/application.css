@@ -1,5 +1,6 @@
 /**
  *= require bootstrap-custom
+ *= require_tree ./compare
  */
 
 .translation_missing {
