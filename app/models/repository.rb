@@ -2,9 +2,8 @@ class Repository
   #
   # attributes to list automatically
   #
-  ATTRIBUTES = %i(description created_at pushed_at homepage
-                  language stargazers_count forks_count open_issues_count
-                  network_count subscribers_count watchers_count)
+  ATTRIBUTES = %i(description homepage language created_at pushed_at
+                  stargazers_count subscribers_count forks_count open_issues_count)
 
   attr_accessor :repository
 
