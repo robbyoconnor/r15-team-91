@@ -1,19 +1,39 @@
-- if @repo1 && @repo2
+h1.text-center This or That?
 
-  .row
-    .col-sm-6
-      = render 'repo', repo: @repo1.information
-    .col-sm-6
-      = render 'repo', repo: @repo2.information
+.container
+  - if @repo1 && @repo2
 
-  table.table.borderless
-    tbody
-      = render 'row', left: @repo1.information.stargazers_count, right: @repo2.information.stargazers_count, label: t('.stargazers_count')
+    .row
+      .col-sm-6
+        = render 'repo', repo: @repo1.information
+      .col-sm-6
+        = render 'repo', repo: @repo2.information
 
-      = render 'row', left: @repo1.information.subscribers_count, right: @repo2.information.subscribers_count, label: t('.subscribers_count')
+    table.table.borderless
+      tbody
+        = render 'row', left: @repo1.information.stargazers_count, right: @repo2.information.stargazers_count, label: t('.stargazers_count')
 
-      = render 'row', left: @repo1.information.forks_count, right: @repo2.information.forks_count, label: t('.forks_count')
+        = render 'row', left: @repo1.information.subscribers_count, right: @repo2.information.subscribers_count, label: t('.subscribers_count')
 
-      = render 'row', left: @repo1.information.open_issues_count, right: @repo2.information.open_issues_count, label: t('.open_issues_count')
-- else
-  p Repository not found!
+        = render 'row', left: @repo1.information.forks_count, right: @repo2.information.forks_count, label: t('.forks_count')
+
+        = render 'row', left: @repo1.information.open_issues_count, right: @repo2.information.open_issues_count, label: t('.open_issues_count')
+  - else
+    p Repository not found!
+
+  h2.text-center What Should I Use?
+
+  = form_tag create_compare_path, method: :post do
+    .row
+      .col-sm-4.col-sm-offset-1
+        .input-group.input-group-lg
+          .input-group-addon github.com/
+          = text_field_tag 'repo1', @repo1, placeholder: 'plataformatec/devise', class: 'form-control'
+
+      .col-sm-4
+        .input-group.input-group-lg
+          .input-group-addon github.com/
+          = text_field_tag 'repo2', @repo2, placeholder: 'thoughtbot/clearance', class: 'form-control'
+
+      .col-sm-2
+        = submit_tag 'Compare', class: 'btn btn-primary btn-lg'
