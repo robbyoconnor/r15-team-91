@@ -1,8 +1,8 @@
 class Repository
   #
-  # attributes
+  # attributes to list automatically
   #
-  ATTRIBUTES = %i(name description created_at pushed_at homepage
+  ATTRIBUTES = %i(description created_at pushed_at homepage
                   language stargazers_count forks_count open_issues_count
                   network_count subscribers_count watchers_count)
 
@@ -24,7 +24,7 @@ class Repository
   private
 
   def method_missing(method_sym, *_arguments, &_block)
-    return repository[method_sym] if ATTRIBUTES.include? method_sym
+    return repository[method_sym] if repository.respond_to? method_sym
 
     super
   end

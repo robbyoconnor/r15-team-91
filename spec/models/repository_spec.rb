@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe Repository do
   let(:repository) do
     OpenStruct.new(
+      name: 'name',
       description: 'description',
       created_at: 1.day.ago,
       pushed_at: Time.now,
