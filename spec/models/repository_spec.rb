@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe Repository do
   let(:repository) do
     OpenStruct.new(
+      name: 'name',
       description: 'description',
       created_at: 1.day.ago,
       pushed_at: Time.now,
@@ -11,9 +12,7 @@ RSpec.describe Repository do
       stargazers_count: 1,
       forks_count: 1,
       open_issues_count: 1,
-      network_count: 1,
-      subscribers_count: 1,
-      watchers_count: 1)
+      subscribers_count: 1)
   end
   subject { described_class.new(repository: repository) }
 
@@ -29,9 +28,7 @@ RSpec.describe Repository do
   it { expect(subject.stargazers_count).to eq repository.stargazers_count }
   it { expect(subject.forks_count).to eq repository.forks_count }
   it { expect(subject.open_issues_count).to eq repository.open_issues_count }
-  it { expect(subject.network_count).to eq repository.network_count }
   it { expect(subject.subscribers_count).to eq repository.subscribers_count }
-  it { expect(subject.watchers_count).to eq repository.watchers_count }
 
   describe '.find_by' do
     it 'when exists repository' do
