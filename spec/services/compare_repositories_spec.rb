@@ -36,10 +36,18 @@ RSpec.describe CompareRepositories do
     subject { described_class.new(owner1: 'owner', name1: 'name1', owner2: 'owner', name2: 'name2') }
 
     context 'when exists repository' do
-      it 'attributes for repository 1' do
+      before do
         allow(Octokit).to receive(:repository).with(owner: 'owner', name: 'name1').and_return(github_information_1)
         allow(Octokit).to receive(:repository).with(owner: 'owner', name: 'name2').and_return(github_information_2)
+      end
 
+      it 'persist comparison' do
+        expect(PersistComparisonWorker).to receive(:perform_async).with('owner', 'name1', 'owner', 'name2')
+
+        subject.call
+      end
+
+      it 'attributes for repository 1' do
         repositories = subject.call
 
         expect(repositories[0].owner).to eq 'owner'
@@ -51,9 +59,6 @@ RSpec.describe CompareRepositories do
       end
 
       it 'attributes for repository 2' do
-        allow(Octokit).to receive(:repository).with(owner: 'owner', name: 'name1').and_return(github_information_1)
-        allow(Octokit).to receive(:repository).with(owner: 'owner', name: 'name2').and_return(github_information_2)
-
         repositories = subject.call
 
         expect(repositories[1].owner).to eq 'owner'
@@ -68,6 +73,8 @@ RSpec.describe CompareRepositories do
     it 'when does not exists repository' do
       expect(Octokit).to receive(:repository).with(owner: 'owner', name: 'name1').and_raise(Octokit::NotFound)
       expect(Octokit).to receive(:repository).with(owner: 'owner', name: 'name2').and_raise(Octokit::NotFound)
+
+      expect(PersistComparisonWorker).to_not receive(:perform_async)
 
       expect(subject.call).to match_array [nil, nil]
     end

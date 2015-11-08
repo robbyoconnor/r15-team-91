@@ -10,6 +10,9 @@ class CompareRepositories
 
   def call
     load_repositories
+    persist_comparison
+
+    repositories
   end
 
   def self.call(args)
@@ -19,6 +22,12 @@ class CompareRepositories
   private
 
   attr_reader :owner1, :name1, :owner2, :name2
+
+  def persist_comparison
+    if repositories.compact.count == 2
+      PersistComparisonWorker.perform_async(owner1, name1, owner2, name2)
+    end
+  end
 
   def load_repositories
     @repositories = (1..2).map do |number|
