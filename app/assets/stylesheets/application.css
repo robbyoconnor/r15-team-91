@@ -6,3 +6,13 @@
 .translation_missing {
   outline: 1px dashed red;
 }
+
+h1 {
+  font-size: 3.7em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 3.5em;
+  padding-bottom: 1em;
+}
