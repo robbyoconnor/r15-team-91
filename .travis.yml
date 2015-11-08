@@ -1,4 +1,6 @@
 language: ruby
+services:
+- redis-server
 addons:
   postgresql: '9.3'
 script:
